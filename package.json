@@ -1,0 +1,27 @@
+{
+  "name": "@wowserhq/blp",
+  "version": "0.1.0",
+  "description": "BLP library for Javascript",
+  "author": "Wowser Contributors",
+  "repository": "github:wowserhq/blp",
+  "license": "MIT",
+  "main": "dist/index",
+  "scripts": {
+    "build": "npm run clean && npm run test && npm run build:cjs && npm run build:esm",
+    "build:cjs": "BABEL_ENV=cjs babel src/lib/ --out-dir dist/",
+    "build:esm": "BABEL_ENV=esm babel src/lib/ --out-dir dist/ --keep-file-extension",
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "npm run build",
+    "test": "exit 0"
+  },
+  "keywords": [
+    "wowser"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "rimraf": "^2.6.2"
+  }
+}
